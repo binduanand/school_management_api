@@ -23,6 +23,10 @@ conn.connect((err) => {
   console.log("Connected to the database.");
 });
 
+app.get("/", (req, res) => {
+  res.send("API is working!");
+});
+
 // addSchool - POST
 app.post("/addSchool", (req, res) => {
   const { name, address, latitude, longitude } = req.body;
