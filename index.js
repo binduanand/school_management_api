@@ -68,6 +68,8 @@ app.post("/addSchool", (req, res) => {
     if (err) {
       return res.status(500).json({ error: "Database error", details: err });
     }
+
+    conn.end(); 
     res.status(201).json({ message: "School added successfully!" });
   });
 });
@@ -102,6 +104,7 @@ app.get("/listSchools", (req, res) => {
       return res.status(404).json({ message: "No schools found." });
     }
     res.status(200).json(results);
+    conn.end(); 
   });
 });
 
